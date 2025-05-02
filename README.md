@@ -2,6 +2,9 @@
 
 This project implements a **Multilingual Retrieval-Augmented Generation (RAG) System** capable of extracting, indexing, and retrieving information from scanned and digital PDFs in **Hindi, English, Bengali, and Chinese**. It uses **OCR**, **semantic chunking**, **dense embeddings**, and a **local LLM-based chatbot** to answer questions.
 
+
+<img width="943" alt="Screenshot 2025-05-03 000457" src="https://github.com/user-attachments/assets/7fe4ad9e-aeb2-4b66-81ba-7e16e9fec4e4" />
+
 ---
 
 ## 📁 Folder Structure
@@ -26,11 +29,10 @@ This project implements a **Multilingual Retrieval-Augmented Generation (RAG) Sy
 - 🔤 **Multilingual PDF Support** (Hindi, English, Bengali, Chinese)
 - 🧾 **Scanned PDF OCR** via Tesseract
 - ✂️ **Recursive Chunking** for context-preserving splits
-- 🧠 **Dense Embeddings** using `intfloat/multilingual-e5-small`
+- 🧠 **Embeddings** using `sentence‑transformers/paraphrase‑MiniLM‑L6‑v2`
 - 🔍 **FAISS Vector Store** for efficient retrieval
-- ❓ **Automatic Question Generation** for fine-tuning/data augmentation
 - 💬 **Chatbot Interface** with contextual memory
-- 🧠 **Local LLM** inference (TinyLLaMA / Mistral / FLAN-T5)
+- 🧠 **Local LLM** inference (google/flan-t5-base)
 
 ---
 
@@ -82,13 +84,10 @@ pip install -r requirements.txt
 - Saves indexed embeddings using FAISS.
 - Performs hybrid search to fetch top relevant chunks.
 
-### 5. Question Generation (`result1.py`)
-- Uses a seq2seq model (`t5-base`) to generate relevant questions from document chunks.
-
-### 6. Question Answering (`result2.py`)
+### 5. Question Answering (`result2.py`)
 - Answers questions using a local LLM like FLAN-T5 or TinyLLaMA.
 
-### 7. Chatbot Interface (`chatbot.py`)
+### 6. Chatbot Interface (`chatbot.py`)
 - Provides a conversational UI for asking questions about PDF documents.
 - Supports chat history and memory.
 
@@ -119,10 +118,8 @@ python chatbot.py
 
 ## 🧠 Model Notes
 
-- 🧠 **Embedding Model**: `intfloat/multilingual-e5-small` (100MB)
-- 🧠 **Question Generator**: `t5-base`
-- 🧠 **LLM QA Model**: `google/flan-t5-small` or locally hosted `TinyLLaMA`
-
+- 🧠 **Embedding Model**: `sentence-transformers/paraphrase-MiniLM-L6-v2` 
+- 🧠 **LLM QA Model**: `google/flan-t5-small` 
 Ensure models are either downloaded ahead or use `local_files_only=True`.
 
 ---
@@ -138,7 +135,7 @@ Ensure models are either downloaded ahead or use `local_files_only=True`.
 ## 🙋‍♂️ Author
 
 **Vinay Kumar**  
-Researcher and Data Enthusiast | Focused on Multilingual NLP + LLM Ops
+AI/ML Engineer and Data Enthusiast | Focused on Multilingual NLP + LLM Ops
 
 ---
 
