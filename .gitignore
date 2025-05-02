@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.swp
+rag_env/
+
+# Data
+data/processed/
+vectorstore/
+
+# Environment
+.env
+.env.local
+
+# Models
+models/
+!models/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
